@@ -16,6 +16,128 @@
 				</font>
 			</td>
 		</tr>
+		<tr>
+			<td>
+				<h2>Estrutura basica e entrada/saida</h2>
+		
+				<p>
+					Para compilar e executar qualquer algoritmo, deve-se usar as bibliotecas padrão e da função principal:	
+				</p>
+			</td>		
+		</tr>
+		<tr bgcolor="#E8E8E8">
+			<td>
+				<code>
+					#include <stdio.h> // Entrada e saida (printf, scanf, manipulaçao de arquivos)<br/>
+					#include <stdlib.h> // Alocaçao de memoria, conversoes, controle de processo<br/>
+					#include <string.h> // Manipulaçao de strings<br/>
+					<br/>
+					int main(){<br/>
+						int idade;<br/>
+						float altura;<br/>
+						char nome[50];<br/>
+					<br/>
+					//Leitura e exibiçao:<br/>
+					printf("Digite nome, idade e altura: ");<br/>
+					scanf("%s %d %f", nome, &idade, &altura); //Nota: 'nome' nao leva & por ser vetor<br/>
+					printf("Nome: %s | Idade: %d | Altura: %.2f\n", nome, idade, altura);<br/>
+					<br/>
+					return 0;<br/>
+					}				
+				</code>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<h2>Estruturas condicionais</h2>
+				<p>Utilizadas para desvios condicionais na execução do algoritmo:</p>
+			</td>
+		</tr>
+		<tr bgcolor="#e8e8e8">
+			<td>
+				<code>
+					// if / else if / else<br/>
+					if (nota >= 7.0) {<br/>
+						printf("Aprovado\n");<br/>
+					} else if (nota >= 5.0) {<br/>
+						printf("Recuperacao\n");<br/>
+					} else {<br/>
+						printf("Reprovado\n");<br/>
+					}<br/>
+					<br/>
+					// Operador Ternario (Condicao ? verdadeiro : falso)<br/>
+					int maior = (a > b) ? a : b;<br/>
+					<br/>
+					// switch / case (para valores inteiros ou caracteres)<br/>
+					switch (opcao) {<br/>
+						case 1:<br/>
+							printf("Opcao 1 selecionada\n");<br/>
+							break; // Impede que execute os casos abaixo<br/>
+						case 2:<br/>
+							printf("Opcao 2 selecionada\n");<br/>
+							break;<br/>
+						default:<br/>
+							printf("Opcao invalida\n");<br/>
+					}<br/>
+
+				</code>
+			</td>
+
+		</tr>
+		<tr>
+			<td>
+				<h2>Lacos de Repeticao (Loops)</h2>
+				<p>Fundamentais para iteracao em vetores, matrizes e buscas</p>
+			</td>
+		</tr>
+		<tr bgcolor="e8e8e8">
+			<td>
+				<code>
+					// for: ideal quando o numero de iteracoes e conhecido<br/>
+					for (int i = 0; i < 10; i++) {<br/>
+						printf("%d ", i);<br/>
+					}<br/>
+					<br/>
+					// while: ideal quando a condicao depende de uma checagem previa<br/>
+					int j = 0;<br/>
+					while (j < 10) {<br/>
+						printf("%d ", j);<br/>
+						j++;<br/>
+					}<br/>
+					<br/>
+					// do-while: garante ao menos uma execuçao antes de checar a condicao<br/>
+					int opcao;<br/>
+					do {<br/>
+						printf("Digite 0 para sair: ");<br/>
+						scanf("%d", &opcao);<br/>
+					} while (opcao != 0);<br/>
+					<br/>
+					// controle de fluxo em laços<br/>
+					// break; -> interrompe o laço imediatamente<br/>
+					// continue; -> pula para a proxima iteracao do laço<br/>
+				</code>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<h2>Vetores, Matrizes e Strings</h2>
+				<p>Estruturas de dados homogêneas</p>
+			</td>
+		</tr>
+		<tr bgcolor="e8e8e8">
+			<td>
+				<code>
+					// Vetor (1D)
+					int vetor[5] = {10, 20, 30, 40, 50};
+
+					// 
+				</code>
+			</td>
+		</tr>
+
+
+
+
 		
 	</table>
 
