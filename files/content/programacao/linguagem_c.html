@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinicius Magrin</title>
+    <link rel="stylesheet" href="../../../styles.css">
+</head>
+<body>
+    <div id="tudo">
+        <div id="top-wrapper">
+        <!--Cabecalho-->
+        <div id="cabecalho">
+            <h1>Linguagem C</h1>
+            <h3>Linguagem procedural compilada de baixo nivel</h3>
+        </div>
+
+        <!--Barra de navegacao-->
+        <div id="barranavegacao">
+            <ul class="menu">
+                <li class="menu"><a class="menu" href="../../../index.html">Home</a></li>
+                <li class="menu"><a class="menu" href="../../menu/programacao.html">Programacao</a></li>
+                <li class="menu"><a class="menu" href="../../menu/webdesign.html">Web Design</a></li>
+                <li class="menu"><a class="menu" href="../../menu/sql.html">SQL</a></li>
+                <li class="menu"><a class="menu" href="../../menu/script.html">Script</a></li>
+
+            </ul>
+        </div>
+        </div>
+
+        <!--Conteudo da pagina-->
+        <div class="conteudo">
+            <h2>Linguagem C</h2>
+            <h3>Estrutura basica e entrada/saida</h3>
+            <p>Para compilar e executar qualquer algoritmo, deve-se usar as bibliotecas padrão e da 
+                função principal:</p>
+            <pre><code>
+                #include &lt;stdio.h&gt;   // Entrada e saída (printf, scanf, manipulação de arquivos)
+                #include &lt;stdlib.h&gt;  // Alocação de memória, conversões, controle de processo
+                #include &lt;string.h&gt;  // Manipulação de strings
+
+                int main() {
+                    int idade;
+                    float altura;
+                    char nome[50];
+
+                    // Leitura e exibição
+                    printf("Digite nome, idade e altura: ");
+                    scanf("%s %d %f", nome, &idade, &altura); // Nota: 'nome' não leva & por ser vetor
+                    printf("Nome: %s | Idade: %d | Altura: %.2f\n", nome, idade, altura);
+
+                    return 0; // Indica execução bem-sucedida
+                }
+            </code></pre>
+
+            <h3>Estruturas Condicionais</h3>
+            <p>Utilizadas para desvios condicionais na execução do algoritmo:</p>
+            <pre><code>
+                // if / else if / else
+                if (nota &gt;= 7.0) {
+                    printf("Aprovado\n");
+                } else if (nota &gt;= 5.0) {
+                    printf("Recuperacao\n");
+                } else {
+                    printf("Reprovado\n");
+                }
+
+                // Operador Ternário (condição ? verdadeiro : falso)
+                int maior = (a &gt; b) ? a : b;
+
+                // switch / case (para valores inteiros ou caracteres)
+                switch (opcao) {
+                    case 1:
+                        printf("Opcao 1 selecionada\n");
+                        break; // Impede que execute os casos abaixo
+                    case 2:
+                        printf("Opcao 2 selecionada\n");
+                        break;
+                    default:
+                        printf("Opcao invalida\n");
+                }
+            </code></pre>
+
+            <h3>Laços de Repetição (Loops)</h3>
+            <p>Fundamentais para iteração em vetores, matrizes e buscas:</p>
+            <pre><code>
+                // 1. for: ideal quando o número de iterações é conhecido
+                for (int i = 0; i &lt; 10; i++) {
+                    printf("%d ", i);
+                }
+
+                // 2. while: ideal quando a condição depende de uma checagem prévia
+                int j = 0;
+                while (j &lt; 10) {
+                    printf("%d ", j);
+                    j++;
+                }
+
+                // 3. do-while: garante ao menos uma execução antes de checar a condição
+                int opcao;
+                do {
+                    printf("Digite 0 para sair: ");
+                    scanf("%d", &opcao);
+                } while (opcao != 0);
+
+                // Controle de fluxo em laços
+                // break;    -> interrompe o laço imediatamente
+                // continue; -> pula para a próxima iteração do laço
+            </code></pre>
+
+            <h3>Vetores, Matrizes e Strings</h3>
+            <p>Estruturas de dados homogêneas:</p>
+            <pre><code>
+                // Vetor (1D)
+                int vetor[5] = {10, 20, 30, 40, 50};
+
+                // Matriz (2D)
+                int matriz[2][3] = {
+                    {1, 2, 3},
+                    {4, 5, 6}
+                };
+
+                // Strings (vetor de char terminado em '\0')
+                char texto[20] = "Linguagem C";
+                int tamanho = strlen(texto);          // Retorna o tamanho da string
+                strcpy(texto, "Novo Texto");          // Copia string
+                strcmp(texto, "Novo Texto");          // Compara strings (retorna 0 se forem iguais)
+                strcat(texto, " Concatenado");        // Concatena strings
+            </code></pre>
+
+            <h3>Ponteiros e Alocação Dinâmica de Memória</h3>
+            <p>Ponteiros guardam o endereço de memória de outras variáveis:</p>
+            <pre><code>
+                int x = 10;
+                int *p = &x; // 'p' guarda o endereço de 'x'
+
+                printf("Valor de x: %d\n", x);      // 10
+                printf("Endereço de x: %p\n", &x);  // Ex: 0x7ffd...
+                printf("Conteúdo via p: %d\n", *p); // 10 (desreferenciação)
+
+                // Alocação Dinâmica (stdlib.h)
+                int n = 5;
+                int *ptr = (int *) malloc(n * sizeof(int)); // Aloca memória para 5 inteiros
+
+                if (ptr == NULL) {
+                    printf("Erro de alocação de memória!\n");
+                    exit(1);
+                }
+
+                // Uso do ponteiro como array
+                for (int i = 0; i &lt; n; i++) {
+                    ptr[i] = i * 2;
+                }
+
+                // Liberar a memória alocada SEMPRE após o uso
+                free(ptr);
+                ptr = NULL; // Boa prática para evitar dangling pointer
+            </code></pre>
+
+            <h3>Estruturas Personalizadas (struct e typedef)</h3>
+            <p>Para criar tipos de dados heterogêneos (essencial para listas encadeadas, árvores, etc.):</p>
+            <pre><code>
+                typedef struct {
+                char nome[30];
+                float nota;
+            } Aluno;
+
+            Aluno a1 = {"Carlos", 8.5};
+
+            // Acesso aos campos com variável direta: usa ponto (.)
+            printf("Aluno: %s | Nota: %.1f\n", a1.nome, a1.nota);
+
+            // Acesso aos campos via ponteiro: usa seta (-&gt;)
+            Aluno *ptr_aluno = &a1;
+            printf("Aluno via ponteiro: %s\n", ptr_aluno-&gt;nome);
+            </code></pre>
+
+            <h3>Manipulação de Arquivos (FILE *)</h3>
+            <p>Permite ler e escrever dados no disco:</p>
+            <pre><code>
+                // 1. Escrita em Arquivo de Texto ("w" cria/sobrescreve, "a" adiciona ao final)
+                FILE *arq = fopen("dados.txt", "w");
+                if (arq != NULL) {
+                    fprintf(arq, "Texto formatado: %d\n", 100);
+                    fputs("Linha de texto simples\n", arq);
+                    fclose(arq); // Sempre fechar o arquivo
+                }
+
+                // 2. Leitura de Arquivo de Texto ("r")
+                FILE *arq_leitura = fopen("dados.txt", "r");
+                char linha[100];
+
+                if (arq_leitura != NULL) {
+                    while (fgets(linha, sizeof(linha), arq_leitura) != NULL) {
+                        printf("Lido: %s", linha);
+                    }
+                    fclose(arq_leitura);
+                }
+
+                // 3. Modos Principais de Abertura:
+                // "r"  : Leitura
+                // "w"  : Escrita (sobrescreve)
+                // "a"  : Anexo (append)
+                // "rb", "wb" : Leitura/Escrita em modo binário (fread / fwrite)
+            </code></pre>
+
+            <h3>Funções e Passagem de Parâmetros</h3>
+            <p>Organização em blocos e tipos de passagem:</p>
+            <pre><code>
+                // Passagem por valor (cópia)
+                void dobrarValor(int num) {
+                    num = num * 2;
+                }
+
+                // Passagem por referência (usando ponteiros para alterar a variável original)
+                void dobrarReferencia(int *num) {
+                    *num = (*num) * 2;
+                }
+
+                int main() {
+                    int valor = 5;
+                    
+                    dobrarValor(valor);
+                    // 'valor' continua sendo 5
+                    
+                    dobrarReferencia(&valor);
+                    // 'valor' agora é 10
+                    
+                    return 0;
+                }
+            </code></pre>
+
+
+
+        </div>
+         
+    <div id="rodape">
+            <ul class="menu_rodape">
+                <li class="menu_rodape">Duvidas e sugestoes: <a href="mailto:vinicius@magrin.eco.br">vinicius@magrin.eco.br</a></li>
+                <li class="menu_rodape"><a href="../../../licencaMIT.html">Licença MIT</a></li>
+                <li class="menu_rodape"><a href="../../menu/sobre.html">Sobre</a></li>
+
+            </ul>
+    </div>          
+
+
+
+    </div>
+
+  
+</body>
+</html>

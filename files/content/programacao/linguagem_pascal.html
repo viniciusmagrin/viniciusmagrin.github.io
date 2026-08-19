@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinicius Magrin</title>
+    <link rel="stylesheet" href="../../../styles.css">
+</head>
+<body>
+    <div id="tudo">
+        <div id="top-wrapper">
+        <!--Cabecalho-->
+        <div id="cabecalho">
+            <h1>Pascal</h1>
+            <h3>Linguagem compilada de alto nivel / estruturada</h3>
+        </div>
+
+        <!--Barra de navegacao-->
+        <div id="barranavegacao">
+            <ul class="menu">
+                <li class="menu"><a class="menu" href="../../../index.html">Home</a></li>
+                <li class="menu"><a class="menu" href="../../menu/programacao.html">Programacao</a></li>
+                <li class="menu"><a class="menu" href="../../menu/webdesign.html">Web Design</a></li>
+                <li class="menu"><a class="menu" href="../../menu/sql.html">SQL</a></li>
+                <li class="menu"><a class="menu" href="../../menu/script.html">Script</a></li>
+
+            </ul>
+        </div>
+        </div>
+
+        <!--Conteudo da pagina-->
+        <div class="conteudo">
+            <h2>Pascal</h2>
+
+            <h3>Estrutura basica e entrada/saida</h3>
+            <p>O Pascal é fortemente tipado e organizado em blocos explicitados pelas palavras <code>begin</code> 
+                e <code>end</code>.</p>
+            <pre><code>
+            program EstruturaBasica;
+
+            uses
+            SysUtils; // Biblioteca padrão com funções utilitárias
+
+            var
+            idade: Integer;
+            altura: Real;
+            nome: String;
+
+            begin
+                Write('Digite nome, idade e altura: ');
+                Readln(nome, idade, altura);
+                
+                // Format para interpolação de strings
+                Writeln(Format('Nome: %s | Idade: %d | Altura: %.2f', [nome, idade, altura]));
+            end.
+            </code></pre>
+
+            <h3>Estruturas condicionais</h3>
+            <p></p>
+            <pre><code>
+            // 1. if / else
+            if nota &gt;= 7.0 then
+                begin
+                    Writeln('Aprovado');
+                end
+            else if nota &gt;= 5.0 then
+                begin
+                    Writeln('Recuperacao');
+                end
+            else
+                begin
+                    Writeln('Reprovado'); // Nota: NUNCA usar ponto e vírgula antes do 'else'
+                end;
+
+            // 2. case / of (Semelhante ao switch/case, suporta intervalos)
+            case opcao of
+                1: Writeln('Opcao 1');
+                2..5: Writeln('Opcoes de 2 a 5'); // Intervalo
+                6, 7: Writeln('Opcao 6 ou 7');    // Lista
+            else
+                Writeln('Opcao invalida');
+            end;
+            </code></pre>
+
+            <h3>Laços de repetição</h3>
+            <p></p>
+            <pre><code>
+            var
+            i: Integer;
+
+            begin
+            // 1. for (crescente e decrescente)
+            for i := 1 to 10 do
+                Write(i, ' ');
+
+            for i := 10 downto 1 do
+                Write(i, ' ');
+
+            // 2. while (checagem no início)
+            i := 1;
+            while i &lt;= 10 do
+            begin
+                Write(i, ' ');
+                Inc(i); // Incrementa i em 1 (i := i + 1)
+            end;
+
+            // 3. repeat-until (checagem no final, executa pelo menos uma vez)
+            repeat
+                Write('Digite 0 para sair: ');
+                Readln(opcao);
+            until opcao = 0;
+
+            // Controle de fluxo: Break (interrompe) e Continue (pula iteração)
+            end;                
+            </code></pre>
+
+            <h3>Vetores, Matrizes e Strings</h3>
+            <p></p>
+            <pre><code>
+            var
+                // Vetores estáticos com limites explícitos
+                vetor: array[1..5] of Integer = (10, 20, 30, 40, 50);
+                matriz: array[1..2, 1..3] of Integer;
+    
+                // Array Dinâmico (sem tamanho fixo)
+                dinamico: array of Integer;
+  
+                texto: String;
+
+            begin
+                // Redimensionando array dinâmico em tempo de execução
+                SetLength(dinamico, 5); // Índices de 0 a 4
+                dinamico[0] := 100;
+
+                // Funções de Strings
+                texto := 'Linguagem Pascal';
+                Writeln(Length(texto));                  // Retorna o tamanho da string
+                Writeln(Copy(texto, 1, 9));              // Extrai sub-string ("Linguagem")
+                Writeln(UpperCase(texto));               // Converte para maiúsculas
+                if SameText(texto, 'LINGUAGEM PASCAL') then // Compara ignorando maiúsculas/minúsculas
+                    Writeln('Iguais');
+            end;
+            </code></pre>
+
+            <h3>Ponteiros e Alocação Dinâmica (<code>GetMem</code>, <code>New</code>)</h3>
+            <p>O Pascal oferece suporte completo a ponteiros usando o operador <code>^</code> 
+                (declaração/desreferenciação) e <code>@</code> (endereço).
+            </p>
+
+            <pre><code>
+            type
+                PInteger = ^Integer; // Tipo ponteiro para inteiro
+
+            var
+                x: Integer;
+                p: PInteger;
+                ptrDinamico: PInteger;
+
+            begin
+                x := 10;
+                p := @x; // 'p' recebe o endereço de 'x'
+
+                Writeln('Valor de x: ', x);
+                Writeln('Conteudo via p: ', p^); // 'p^' acessa o valor apontado
+
+                // Alocação dinâmica com New e Dispose (para ponteiros tipados)
+                New(ptrDinamico);
+                ptrDinamico^ := 42;
+                
+                Dispose(ptrDinamico); // Libera a memória
+                ptrDinamico := nil;   // Boa prática (equivalente ao NULL em C)
+            end;
+            </code></pre>
+
+            <h3>Registros (<code>record</code>) e Variantes</h3>
+            <p>Utilizados para agrupar dados heterogêneos.</p>
+
+            <pre><code>
+            type
+            TAluno = record
+                Nome: String;
+                Nota: Real;
+            end;
+
+            var
+                aluno1: TAluno;
+            begin
+                aluno1.Nome := 'Carlos';
+                aluno1.Nota := 8.5;
+
+                // Bloco 'with' para simplificar o acesso aos campos do registro
+                with aluno1 do
+                begin
+                    Writeln('Aluno: ', Nome);
+                    Writeln('Nota: ', Nota:0:1);
+                end;
+            end;
+            </code></pre>
+
+            <h3>Manipulação de Arquivos (<code>TextFile</code> e Arquivos Binários)</h3>
+            <p></p>
+            <pre><code>
+                var
+                    arq: TextFile;
+                    linha: String;
+
+                begin
+                    // 1. Escrita em Arquivo de Texto
+                    AssignFile(arq, 'dados.txt');
+                    Rewrite(arq); // Cria ou sobrescreve o arquivo
+                    Writeln(arq, 'Texto formatado');
+                    CloseFile(arq); // Sempre fechar após usar
+
+                    // 2. Leitura de Arquivo
+                    AssignFile(arq, 'dados.txt');
+                    Reset(arq); // Abre para leitura
+                    
+                    while not EOF(arq) do
+                    begin
+                        Readln(arq, linha);
+                        Writeln('Lido: ', linha);
+                    end;
+                    CloseFile(arq);
+                end;
+            </code></pre>
+
+            <h3>Subprogramas: <code>procedure</code> e <code>function</code></h3>
+            <p>O Pascal diferencia subprogramas que não retornam valor (<code>procedure</code>) daqueles que retornam 
+                (<code>function</code>). Suporta passagem por valor e por referência (usando a palavra-chave <code>var</code>).
+            </p>
+            <pre><code>
+            // Procedimento com passagem por referência (var)
+            procedure DobrarValor(var num: Integer);
+            begin
+                num := num * 2;
+            end;
+
+            // Função com retorno (usa a variável oculta 'Result' ou o nome da função)
+            function Somar(a, b: Integer): Integer;
+            begin
+                Result := a + b;
+            end;
+            </code></pre>
+            
+            <h3>Recursos Avançados e Orientação a Objetos (Object Pascal)</h3>
+            <p>O Object Pascal traz suporte completo à POO, com classes, herança, encapsulamento, 
+                polimorfismo e gerenciamento de exceções.
+            </p>
+            <h4>Declaração de Classe e Métodos</h4>
+            <pre><code>
+            type
+                // Classe base
+                TPessoa = class
+                private
+                    FNome: String; // Atributos privados costumam iniciar com 'F' (Field)
+                protected
+                    FAttrib: Integer;
+                public
+                    constructor Create(pNome: String); // Construtor
+                    destructor Destroy; override;       // Destrutor
+                    
+                    procedure Apresentar; virtual;      // Método que pode ser sobrescrito
+                    
+                    // Encapsulamento via Properties
+                    property Nome: String read FNome write FNome;
+                end;
+
+                // Herança
+                TAlunoOO = class(TPessoa)
+                private
+                    FNota: Real;
+                public
+                    constructor Create(pNome: String; pNota: Real);
+                    procedure Apresentar; override; // Polimorfismo
+                end;
+
+                // Implementação dos Métodos
+                constructor TPessoa.Create(pNome: String);
+                begin
+                    FNome := pNome;
+                end;
+
+                destructor TPessoa.Destroy;
+                begin
+                    inherited Destroy;
+                end;
+
+                procedure TPessoa.Apresentar;
+                begin
+                    Writeln('Pessoa: ', FNome);
+                end;
+
+                constructor TAlunoOO.Create(pNome: String; pNota: Real);
+                begin
+                    inherited Create(pNome); // Chama construtor da classe pai
+                    FNota := pNota;
+                end;
+
+                procedure TAlunoOO.Apresentar;
+                begin
+                    Writeln(Format('Aluno: %s | Nota: %.1f', [FNome, FNota]));
+                end;
+            </code></pre>
+
+            <h4>Uso das Classes e Tratamento de Exceções (<code>try..finally</code> / <code>try..except</code>)</h4>
+            <pre><code>
+            var
+                objetoAluno: TAlunoOO;
+
+            begin
+                objetoAluno := TAlunoOO.Create('Vinicius', 9.5);
+            
+                // Bloco try..finally garante a liberação da memória mesmo em caso de erro
+                try
+                    objetoAluno.Apresentar;
+                finally
+                    objetoAluno.Free; // 'Free' checa se é nil antes de chamar 'Destroy'
+                end;
+
+                // Tratamento de exceções
+                try
+                    // Algum código suscetível a erros
+                except
+                    on E: Exception do
+                        Writeln('Erro capturado: ', E.Message);
+                end;
+            end;
+
+            </code></pre>
+            
+            <h4>Conjuntos (<code>set</code>) e Tipos Enumerados</h4>
+            <p>Recursos nativos muito úteis do Pascal para controle de estados e validações sem 
+                correspondente direto em C de forma nativa:</p>
+            <pre><code>
+            type
+                TDiaSemana = (dom, seg, ter, qua, qui, sex, sab); // Enumerado
+                TDias = set of TDiaSemana;                       // Conjunto (Set)
+
+            var
+                hoje: TDiaSemana;
+                fimDeSemana: TDias;
+
+            begin
+                hoje := sab;
+                fimDeSemana := [dom, sab];
+
+            // Teste de pertencimento a conjunto
+            if hoje in fimDeSemana then
+                Writeln('E fim de semana!');
+            end;
+            </code></pre>
+
+
+            
+
+
+
+        </div>
+         
+    <div id="rodape">
+            <ul class="menu_rodape">
+                <li class="menu_rodape">Duvidas e sugestoes: <a href="mailto:vinicius@magrin.eco.br">vinicius@magrin.eco.br</a></li>
+                <li class="menu_rodape"><a href="../../../licencaMIT.html">Licença MIT</a></li>
+                <li class="menu_rodape"><a href="../../menu/sobre.html">Sobre</a></li>
+
+            </ul>
+    </div>          
+
+
+
+    </div>
+
+  
+</body>
+</html>
