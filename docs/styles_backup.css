@@ -50,7 +50,10 @@ body{
     border-right: solid 5px #000080;
     border-bottom: dashed 1px #000080;
     overflow: hidden;
-    position:sticky;
+}
+
+#top-wrapper{
+    position: sticky;
     top: 0;
     z-index: 1000;
 }
