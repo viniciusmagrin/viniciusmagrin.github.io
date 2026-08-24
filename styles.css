@@ -9,8 +9,6 @@
 
 }
 
-
-
 body{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin: 0px;
@@ -26,8 +24,11 @@ body{
 }
 
 #cabecalho{
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 5%;
+    margin-right: 5%;
+    max-width: 1200px;
+    padding-bottom: 0%;
+    margin-bottom: 0%;
     background-color: #6495ED;
     color: #FFFFFF;
     border-left: solid 5px #000080;
@@ -42,8 +43,10 @@ body{
 }
 
 #barranavegacao{
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 5%;
+    margin-right: 5%;
+    max-width: 1200px;
+    margin-bottom: 0%;
     padding-bottom: 0%;
     background-color: #000080;
     border-left: solid 5px #000080;
@@ -56,8 +59,9 @@ body{
 }
 
 .conteudo{
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 5%;
+    margin-right: 5%;
+    max-width: 1200px;
     background-color: #FFFFFF;
     border-left: solid 5px #000080;
     border-right: solid 5px #000080;
@@ -92,8 +96,9 @@ pre code{
 }
 
 #rodape{
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 5%;
+    margin-right: 5%;
+    max-width: 1200px;
     padding: 10px;
     background-color: #000080;
     color: #FFFFFF;
