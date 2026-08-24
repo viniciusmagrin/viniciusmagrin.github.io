@@ -1,3 +1,16 @@
+@media (max-width: 768px) {
+    #barranavegacao li.menu {
+        float: none;
+        width: 100%;
+        display: block;
+        margin-right: 0;
+        margin-bottom: 8px;
+    }
+
+}
+
+
+
 body{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin: 0px;
@@ -60,13 +73,19 @@ code{
     background-color: #CECECE;
     padding: 2px 4px;
     border-radius: 4px;
+    font-size: 110%;
 }
 
-pre code{
+pre{
     display: block;
     padding: 10px;
     overflow-x: auto;
     background-color: #CECECE;
+}
+
+pre code{
+    padding: 0px;
+    background-color: transparent;
 }
 
 #rodape{
@@ -138,5 +157,9 @@ li.menu_rodape{
 ul.menu_rodape a {
     color: #FFFFFF;
     font-weight: bold;
+}
+
+.bold {
+    font-weight: bold;    
 }
 

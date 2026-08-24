@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinicius Magrin</title>
+    <link rel="stylesheet" href="../../../styles.css">
+</head>
+<body>
+    <div id="tudo">
+        <div id="top-wrapper">
+        <!--Cabecalho-->
+        <div id="cabecalho">
+            <h1>Javascript</h1>
+            <h3>JavaScript é uma linguagem de tipagem dinâmica e fraca, executada no browser.</h3>
+        </div>
+
+        <!--Barra de navegacao-->
+        <div id="barranavegacao">
+            <ul class="menu">
+                <li class="menu"><a class="menu" href="/index.html">Home</a></li>
+                <li class="menu"><a class="menu" href="/files/menu/backend.html">Back End</a></li>
+                <li class="menu"><a class="menu" href="/files/menu/frontend.html">Front End</a></li>
+                <li class="menu"><a class="menu" href="/files/menu/banco_dados.html">Banco de Dados</a></li>
+                <li class="menu"><a class="menu" href="/files/menu/diversos.html">Diversos</a></li>
+            </ul>
+        </div>
+        </div>
+
+        <!--Conteudo da pagina-->
+        <div class="conteudo">
+            <h2>Linguagem JavaScript</h2>
+              <p>Guia completo do <span class="bold">JavaScript (Moderno / ES6+)</span>, abordando desde a sintaxe fundamental até os recursos avançados de assincronismo e manipulação de estruturas.
+            </p>
+
+            <h2>Fundamentos e Declarações</h2>
+              <p>JavaScript é uma linguagem de tipagem dinâmica e fraca, executada por motores como V8 (Node.js/Chrome).</p>
+              
+              <ul>
+              <li><h3>Variáveis:</h3></li>
+                <ul>
+                    <li><code>const</code>: Para identificadores que não serão reatribuídos (escopo de bloco).</li>
+                    <li><code>let</code>: Para variáveis que serão reatribuídas (escopo de bloco).</li>
+                    <li><code>var</code>: : Modo legado (escopo de função / sofre hoisting). Evite.</li>
+                </ul>
+              <li>
+                <h3>Tipos primitivos:</h3>
+                <code>string</code>, <code>number</code> (inteiros e decimais usam o mesmo tipo), <code>boolean</code>, <code>null</code>, <code>undefined</code>, <code>symbol</code>, <code>bigint</code>.
+              </li>
+              <li>
+                <h3>Interpolação de Strings (Template Literals):</h3>
+                Uso de crases <code>` `</code> com <code>${expressão}</code>.
+              </li>
+              </ul>
+              <pre><code>
+    const nome = "Vinicius";
+    let idade = 25;
+    const ativo = true;
+
+    // Template Literal
+    console.log(`Usuário: ${nome}, Idade: ${idade}`);
+              </code>
+              </pre>
+
+            <h2>Operadores e Comparações</h2>
+              <ul>
+              <li>
+                <h3>Atribuição:</h3>
+                <code>=</code>
+              </li>
+              <li>
+                <h3>Aritméticos</h3>
+                <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>% (resto)</code>, <code>** (exponenciação)/</code>.
+              </li>
+              <li>
+                <h3>Incremento/Decremento:</h3>
+                <code>++</code>, <code>--</code>
+              </li>
+              <li>
+                <h3>Comparação Estrita vs Fraca:</h3>
+                  <ul>
+                    <li><code>===</code> e <code>!==</code>: Comparação estrita (compara valor e tipo). <span class="bold">Padrão recomendado.</span></li>
+                  </ul>
+                  <ul>
+                    <li><code>==</code> e <code>!=</code>: Comparação fraca (realiza conversão implícita de tipo antes de comparar).</li>
+                  </ul>
+              </li>
+              <li>
+                <h3>Operador Ternário</h3>
+                <code>condicao ? valorSeVerdadeiro : valorSeFalso</code>
+              </li>
+              <li>
+                <h3>Operador de Coalescência Nula (<code>??</code>):</h3>
+                Retorna o lado direito se o esquerdo for <code>null</code> ou <code>undefined</code>.
+              </li>
+              <li>
+                <h3>Encadeamento Opcional (<code>?.</code>):</h3>
+                Acessa propriedades de um objeto sem causar erro caso um nível intermediário seja <code>null</code> ou <code>undefined</code>.
+              </li>
+              </ul>
+              <pre><code>
+    const x = 5;
+    const y = "5";
+
+    console.log(x == y);  // true (conversão implícita)
+    console.log(x === y); // false (tipos diferentes: number vs string)
+
+    // Coalescência Nula e Encadeamento Opcional
+    const usuario = { perfil: { cidade: "Cordeirópolis" } };
+    const cidade = usuario?.perfil?.cidade ?? "Desconhecida";
+              </code></pre>
+
+            <h2>Estruturas de Controle e Laços</h2>
+              <li>
+                <ul>
+                    <li>
+                        <h3>Condicionais:</h3>
+                        <code>if</code>, <code>else if</code>, <code>else</code> e <code>switch</code>
+                    </li>
+                    <li>
+                        <h3>Laços de Repetição:</h3>
+                        <ul>
+                            <li><code>for</code>: Iteração tradicional indexada.</li>
+                            <li><code>while</code> / <code>do...while</code>: Iteração baseada em condição.</li>
+                            <li><code>for...of</code>: Itera sobre valores de iteráveis (arrays, strings).</li>
+                            <li><code>for...in</code>: Itera sobre as chaves/propriedades de um objeto.</li>
+                        </ul>
+                    </li>        
+                </ul>
+              </li>
+            <pre><code>
+    // for...of em Arrays
+    const numeros = [10, 20, 30];
+    for (const num of numeros) {
+        console.log(num);
+    }
+
+    // for...in em Objetos
+    const carro = { marca: "Ford", modelo: "Focus" };
+    for (const chave in carro) {
+        console.log(`${chave}: ${carro[chave]}`);
+    }
+            </code></pre>
+
+            <h2>Funções</h2>
+              JavaScript trata funções como cidadãs de primeira classe (first-class citizens), permitindo que sejam passadas como argumentos, atribuídas a variáveis e retornadas por outras funções.
+              <ul>
+                <li>
+                    <h3>Declaraçao Tradicional:</h3>
+                    Possui hoisting (pode ser chamada antes de sua definição).
+                </li>
+                <li>
+                    <h3>Expressão de Função & Arrow Functions:</h3>
+                    Não possuem hoisting. Arrow functions possuem sintaxe concisa e não vinculam o próprio <code>this</code>.
+                </li>
+              </ul>
+              <pre><code>
+    // Tradicional
+    function somar(a, b = 0) { // Valor padrão no parâmetro
+        return a + b;
+    }
+
+    // Arrow Function
+    const multiplicar = (a, b) => a * b;
+
+    // Arrow Function com corpo estendido
+    const calcularMedia = (n1, n2) => {
+        const soma = n1 + n2;
+        return soma / 2;
+    };
+                </code></pre>
+            <h2>Estruturas de Dados: Objetos e Arrays</h2>
+            <h3>Objetos</h3>
+            <p>Coleções do tipo chave/valor (equivalentes a structs/records ou dicionários).</p>
+            <pre><code>
+    const pessoa = {
+        nome: "Vinicius",
+        estudando: true,
+        apresentar() {
+            console.log(`Olá, meu nome é ${this.nome}`);
+        }
+    };
+
+    pessoa.apresentar();
+            </code></pre>  
+            
+            <h2>Arrays e Métodos Funcionais</h2>
+            <p>Em JS, arrays sao objetos dinâmicos e heterogêneos</p>
+            <ul>
+                <li><code>.push()</code>, <code>.pop()</code>, <code>.shift()</code>, <code>.unshift()</code>: Adição e remoção nas extremidades.</li>
+                <li>
+                    <h3>Métodos Iterativos (HOFs - Higher Order Functions):</h3>
+                    <ul>
+                        <li><code>.forEach()</code>: Executa uma função para cada elemento.</li>
+                        <li><code>.map()</code>: Transforma os elementos e retorna um novo array.</li>
+                        <li><code>.filter()</code>: Retorna um novo array contendo apenas os elementos que passam no teste.</li>
+                        <li><code>.reduce()</code>: Acumula os valores do array em um único valor final.</li>
+                        <li><code>.find()</code> / .findIndex(): Localiza elemento/índice com base em condição.</li>
+                    </ul>
+                </li>
+            </ul>
+            <pre>
+              <code>
+    const nums = [1, 2, 3, 4, 5];
+
+    // Dobra apenas os números pares
+    const paresDobrados = nums
+        .filter(n => n % 2 === 0)
+        .map(n => n * 2); // [4, 8]
+
+    // Soma de todos os elementos
+    const somaTotal = nums.reduce((acumulador, atual) => acumulador + atual, 0); // 15
+              </code>
+            </pre>
+
+            <h2>Desestruturação e Operador Rest/Spread</h2>
+            <ul>
+                <li>
+                    <h3>Desestruturação:</h3>
+                    <p></p>
+                </li>
+                <li>
+                    <h3>Spread (<code>...</code>):</h3>
+                    <p></p>
+                </li>
+                <li>
+                    <h3>Rest (<code>...</code>)</h3>
+                    <p></p>
+                </li>                                
+            </ul>
+            <pre>
+                <code>
+// Desestruturação de Objeto
+const usuario = { id: 1, nome: "Ana", cargo: "Dev" };
+const { nome, cargo } = usuario;
+
+// Desestruturação de Array
+const coordenadas = [10, 20, 30];
+const [x, y] = coordenadas;
+
+// Spread em Objetos e Arrays (Clone/Merge)
+const usuarioCompleto = { ...usuario, ativo: true };
+const novosNumeros = [...coordenadas, 40, 50];
+
+// Rest em Parâmetros de Função
+function somarTudo(...valores) {
+    return valores.reduce((acc, n) => acc + n, 0);
+}                    
+                </code>
+            </pre>
+            
+            <h2>Orientação a Objetos (Classes e Protótipos)</h2>
+              <p>O JavaScript utiliza herança baseada em Protótipos. O ES6 introduziu a sintaxe de <code>class</code> como uma camada sintática (syntactic sugar) sobre o sistema prototípico.</p>
+              <pre>
+                <code>
+class Dispositivo {
+    #ligado = false; // Campo privado (ES2022)
+
+    constructor(nome) {
+        this.nome = nome;
+    }
+
+    ligar() {
+        this.#ligado = true;
+        console.log(`${this.nome} ligado.`);
+    }
+
+    get estaLigado() {
+        return this.#ligado;
+    }
+}
+
+// Herança
+class Smartphone extends Dispositivo {
+    constructor(nome, sistema) {
+        super(nome);
+        this.sistema = sistema;
+    }
+}
+
+const meuCelular = new Smartphone("Galaxy", "Android");
+meuCelular.ligar();                    
+                </code>
+              </pre>
+            
+            <h2>Programação Assíncrona</h2>
+            <p>Como o runtime do JavaScript roda em uma thread única (Single-Threaded Event Loop), operações de E/S (leitura de arquivos, chamadas de rede) usam modelos assíncronos não-bloqueantes.</p>
+              <h3>Promises</h3>
+              <p>Objeto representando a eventual conclusão ou falha de uma operação assíncrona.</p>
+              <pre>
+                <code>
+const buscarDados = () => {
+return new Promise((resolve, reject) =&gt; {
+    const sucesso = true;
+    setTimeout(() =&gt; {
+        if (sucesso) resolve("Dados carregados");
+        else reject("Erro ao carregar");
+    }, 1000);
+});
+};
+
+buscarDados()
+.then(resposta => console.log(resposta))
+.catch(erro => console.error(erro));
+                </code>
+              </pre>
+              <h3>Async / Await</h3>
+              <p>Sintaxe moderna que permite escrever código assíncrono com aparência síncrona.</p>
+              <pre>
+                <code>
+async function executarProcesso() {
+    try {
+        const resultado = await buscarDados();
+        console.log(resultado);
+    } catch (erro) {
+        console.error("Tratamento de erro:", erro);
+    }
+}
+
+executarProcesso();
+                </code>
+              </pre>
+            
+            <h2>Módulos (ES Modules)</h2>
+            <p>Utilizados para organizar o código em múltiplos arquivos usando <code>export</code> e <code>import</code>.</p>
+
+            <pre>
+                <code>
+// arquivo: mathUtils.js
+export const PI = 3.14159;
+export function somar(a, b) {
+    return a + b;
+}
+export default function subtrair(a, b) {
+    return a - b;
+}
+
+// arquivo: main.js
+import subtrair, { PI, somar } from './mathUtils.js';
+                </code>
+            </pre>
+
+
+            
+
+
+
+        </div>
+         
+    <div id="rodape">
+            <ul class="menu_rodape">
+                <li class="menu_rodape">Duvidas e sugestoes: <a href="mailto:">vinicius@magrin.eco.br</a></li>
+                <li class="menu_rodape"><a href="/licencaMIT.html">Licença MIT</a></li>
+                <li class="menu_rodape"><a href="/files/menu/sobre.html">Sobre</a></li>
+            </ul>
+    </div>          
+
+
+
+    </div>
+
+  
+</body>
+</html>
