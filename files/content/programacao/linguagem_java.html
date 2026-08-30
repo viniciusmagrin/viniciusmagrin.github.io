@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinicius Magrin</title>
+    <link rel="stylesheet" href="../../../styles.css">
+</head>
+<body>
+    <div id="tudo">
+        <div id="top-wrapper">
+        <!--Cabecalho-->
+        <div id="cabecalho">
+            <h1>Linguagem Java</h1>
+            <h3>Java é uma linguagem orientada a objetos</h3>
+        </div>
+
+        <!--Barra de navegacao-->
+        <div id="barranavegacao">
+            <ul class="menu">
+                <li class="menu"><a class="menu" href="/index.html">Home</a></li>
+                <li class="menu"><a class="menu" href="/files/menu/backend.html">Back End</a></li>
+                <li class="menu"><a class="menu" href="/files/menu/frontend.html">Front End</a></li>
+                <li class="menu"><a class="menu" href="/files/menu/banco_dados.html">Banco de Dados</a></li>
+                <li class="menu"><a class="menu" href="/files/menu/diversos.html">Diversos</a></li>
+            </ul>
+        </div>
+        </div>
+
+        <!--Conteudo da pagina-->
+        <div class="conteudo">
+            <h2>Linguagem Java</h2>
+            <h3>Estrutura basica em um exemplo:</h3>
+            <p>Abaixo temos a estrutura basica de codigo java:</p>
+            <pre><code>
+package classes_e_objetos;
+
+import java.util.Scanner;
+
+public class Exemplo1_Classes_e_Objetos {
+    public static void main(String[] args) {
+
+        Scanner teclado = new Scanner(System.in);
+
+        System.out.print("Digite o nome do carro: ");
+        String nome = teclado.nextLine();
+
+        System.out.print("Digite o modelo do carro: ");
+        String modelo = teclado.nextLine();
+
+        System.out.print("Digite o ano do carro: ");
+        int ano = teclado.nextInt();
+
+        Carro meuCarro = new Carro(nome, modelo, ano);
+
+        meuCarro.exibirInformacoes();
+
+        teclado.close();
+
+    }
+
+}
+
+class Carro {
+    String nome;
+    String modelo;
+    int ano;
+
+    Carro(String nome, String modelo, int ano){
+        this.nome = nome;
+        this.modelo = modelo;
+        this.ano = ano;
+    }
+
+    void exibirInformacoes(){
+        System.out.println("\n====== INFORMACOES DO CARRO =====");
+        System.out.println("Nome: " + nome);
+        System.out.println("Modelo: " + modelo);
+        System.out.println("Ano: " + ano);
+        System.out.println("====================================");
+    }
+}
+            </code></pre>
+
+            <h3>Explicação:</h3>
+            <p><code>package classes_e_objetos;</code> => Define o pacote onde a classe esta localizada. Pacotes 
+            em Java funcionam como "pastas virtuais", para organizar as classes.</p>
+            <p><code>import java.util.Scanner;</code> => Importa a classe Scanner do pacote java.util. O Scanner 
+            é uma classe utilitaria que permite ler dados de entrada, como texto, numero, etc digitado pelo 
+            usuario no teclado ou vindo de arquivos ou fluxos de dados</p>
+            <p><code>public class Exemplo1_Classes_e_Objetos {</code> => Inicio da definicao da classe publica 
+            "Exemplo1_Classes_e_Objetos". <code>public</code> indica que essa classe pode ser acessada de qualquer lugar 
+            do projeto.</p>
+            <p><code>public static void main(String[] args) {</code> => Em Java, o metodo main é o ponto de entrada 
+            da aplicaçao, sendo executado quando o programa inicia. É obrigatório para a execução.
+            <ul> 
+                <li>
+                    <code>public</code>: pode ser acessado de qualquer lugar. 
+                </li>
+                <li>
+                    <code>static</code>: pode ser executado sem precisar criar um objeto de classe.
+                </li>
+                <li>
+                 <code>void</code>: nao retorna nenhum valor.
+                </li>
+                <li> 
+                 <code>String[] args</code>: permite passar parametros pela linha de comando.</p>
+                </li>
+            </ul>
+
+            <p><code>Scanner teclado = new Scanner(System.in);</code> Criaçao de um objeto Scanner chamado 
+            "teclado". Esse objeto sera responsavel por capturar os dados digitados pelo usuario no console. 
+            System.in representa a entrada padrao (normalmente o teclado).</p>
+
+            <p><code>String modelo = teclado.nextLine();</code> Captura o nome digitado pelo usuario.
+            nextLine() lê uma linha completa de texto ate o usuario pressionar 'Enter'.
+            O valor digitado sera armazenado na variavel "nome".</p>
+
+            <p><code>Carro meuCarro = new Carro(nome, modelo, ano);</code> Instanciaçao de um objeto da classe 
+            "Carro". A palavra chave "new" é usada para criar um novo objeto em memoria. O construtor da classe 
+            Carro sera chamado, recebendo como parametros os valores digitados. O objeto criado sera armazenado 
+            na variavel de referencia "meuCarro".</p>
+
+            <p><code>meuCarro.exibirInformacoes();</code> Chamada do metodo "exibirInformacoes" do objeto "meuCarro".
+            Isso fará com que o carro mostre na tela todos os dados formatados.</p>
+
+            <p><code>teclado.close();</code> Fechamento do objeto Scanner. É uma boa pratica fechar o Scanner quando 
+            nao for mais utilizado, para liberar recursos do sistema operacional e evitar vazamentos de memoria.</p>
+
+            <p><code>class Carro {</code> Definiçao da classe carro. Uma classe é como um molde ou modelo que descreve 
+            as caracteristicas (atributos) e os comportamentos (metodos) que os objetos deste tipo terao.</p>
+            
+            <p><pre><code>
+    String nome;
+    String modelo;
+    int ano;
+            </code></pre> Atributos da classe carro. Tambem são chamados de "variaveis de instancia". Representam 
+            as caracteristicas (propriedades) do objeto.</p>
+            
+            <p><code>Carro(String nome, String modelo, int ano) {</code> Construtor da classe Carro. O construtor é um metodo especial chamado automaticamente 
+            quando usamos "new". Ele tem o mesmo nome da classe e nao possui nenhum tipo de retorno. Sua funçao é 
+            inicializar os atributos do objeto com os valores passados como parametros.</p>
+
+            <p><code>this.nome = nome;</code> "this" referencia o proprio objeto. Diferencia os atributos 
+            do objeto (this.nome) dos parametros recebidos (nome). Assim evitamos ambiguidade.</p>
+
+            <p><code>void exibirInformacoes() {conteudo}</code> Metodo para imprimir no console os dados do 
+            carro. Metodos sao comportamentos (funcoes) que os objetos podem executar.</p>
+
+
+
+        </div>
+         
+    <div id="rodape">
+            <ul class="menu_rodape">
+                <li class="menu_rodape">Duvidas e sugestoes: <a href="mailto:">vinicius@magrin.eco.br</a></li>
+                <li class="menu_rodape"><a href="/licencaMIT.html">Licença MIT</a></li>
+                <li class="menu_rodape"><a href="/files/menu/sobre.html">Sobre</a></li>
+            </ul>
+    </div>          
+
+
+
+    </div>
+
+  
+</body>
+</html>
