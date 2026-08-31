@@ -145,8 +145,52 @@ class Carro {
             do objeto (this.nome) dos parametros recebidos (nome). Assim evitamos ambiguidade.</p>
 
             <p><code>void exibirInformacoes() {conteudo}</code> Metodo para imprimir no console os dados do 
-            carro. Metodos sao comportamentos (funcoes) que os objetos podem executar.</p>
+            carro. Metodos sao comportamentos (funcoes) que os objetos podem executar.</p>    
 
+            <h3>Logica de funcionamento das classes e objetos:</h3>
+            <p>Um fluxo simples e um exemplo para entender classes e objetos é:</p>
+            <ol>
+                <li>Criar uma classe modelo, com seus atributos:</li>
+                    <pre><code>
+                        package orientacao_objetos
+
+                        public class Livro {
+                            String nome;
+                            String descricao;
+                            String autor;
+                            String isbn;
+                            double preco;
+                            String dataPub;
+                        }
+                    </code></pre>
+                <li>Criar a classe principal <code>main</code> que ira chamar a classe a ser usada</li>
+                <li>Nessa mesma classe, pode usar o metodo construtor para criar o objeto, usando a classe 
+                    modelo ex: <code>Livro livro = new Livro()</code></li>
+                <li>Atribuir valores ao objeto recem criado</li>
+                <p>Abaixo temos o codigo da classe principal que realiza as etapdas 2 a 4</p>
+                <pre><code>
+                    package orientacao_objetos;
+                    
+                    public class Principal {
+
+                        public static void main(String[] args) {
+                            Livro livro = new Livro();
+
+                            livro.nome = "Boson Linux";
+                            livro.descricao = "Livro sobre linux da Boson";
+                            livro.isbn = "98765678";
+                            livro.preco = 45.95;
+                            livro.autor = "Fabio dos reis";
+                            livro.dataPub = "20/04/2017";
+
+                            System.out.printf(A data de publicacao do livro %s é %s, livro.nome, livro.dataPub);
+
+                        }
+                    }
+                </code></pre>
+                <p>A saida desse codigo sera: <code>A data de publicacao do livro Boson Linux é 20/04/2017</code></p>
+            </ol>
+        
 
 
         </div>
@@ -157,12 +201,10 @@ class Carro {
                 <li class="menu_rodape"><a href="/licencaMIT.html">Licença MIT</a></li>
                 <li class="menu_rodape"><a href="/files/menu/sobre.html">Sobre</a></li>
             </ul>
-    </div>          
-
+              
 
 
     </div>
-
   
 </body>
 </html>
