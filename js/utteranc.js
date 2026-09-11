@@ -1,14 +1,3 @@
-<script src="https://utteranc.es/client.js"
-        repo="your-username/my-blog-comments"
-        issue-term="pathname"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
-</script>
-
-//-----
-
-
 const script = document.createElement('script');
 script.src = 'https://utteranc.es/client.js';
 script.setAttribute('repo', 'viniciusmagrin/viniciusmagrin.github.io');
