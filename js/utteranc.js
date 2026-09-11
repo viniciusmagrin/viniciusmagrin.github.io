@@ -1,3 +1,5 @@
+const container = document.querySelector('main') || document.body;
+
 const script = document.createElement('script');
 script.src = 'https://utteranc.es/client.js';
 script.setAttribute('repo', 'viniciusmagrin/viniciusmagrin.github.io');
