@@ -1,0 +1,35 @@
+.barra-busca-topo {
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    background-color: #ffffff;
+    border-bottom: 2px solid #e2e8f0;
+    padding: 12px 20px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.container-busca-input {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+}
+
+.input-busca-topo {
+    width: 100%;
+    padding: 10px 16px;
+    font-size: 15px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    box-sizing: border-box;
+}
+
+.input-busca-topo:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
