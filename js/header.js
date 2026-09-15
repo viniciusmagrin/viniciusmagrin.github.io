@@ -1,13 +1,6 @@
 const headerTemplate = document.createElement('template');
 
 headerTemplate.innerHTML = `
-<header>
-	<!--Cabecalho-->
-	<div id="cabecalho">
-	    <h1>Engenharia de Sistemas</h1>
-	    <h3>Um pequeno guia de consulta dos recursos mais usados</h3>
-	</div>
-
 	<!--Barra de navegacao-->
 	<div id="barranavegacao">
 	    <ul class="menu">
@@ -18,10 +11,9 @@ headerTemplate.innerHTML = `
 		<li class="menu"><a class="menu" href="/files/menu/diversos.html">Diversos</a></li>
 	    </ul>
 	</div>
-</header>
 `;
 
-const headerContainer = document.getElementById('tudo');
-if (headerContainer) {
-	headerContainer.prepend(headerTemplate.content);
+const cabecalho = document.getElementById('cabecalho');
+if (cabecalho) {
+	cabecalho.after(headerTemplate.content.cloneNode(true));
 }

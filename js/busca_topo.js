@@ -20,11 +20,28 @@ document.addEventListener("DOMContentLoaded", function() {
         </div>
     `;
 
-    // Insere no começo da body
-    document.body.insertBefore(barraBusca, document.body.firstChild);
+    // Procura o menu de navegaçao
+    //const topWrapper = document.getElementById("top-wrapper");
+    const menuNav = document.getElementById("barranavegacao");
+
+
+    // Insere busca abaixo do menu
+    if (menuNav) {
+        menuNav.parentNode.insertBefore(barraBusca, menuNav.nextSibling);
+    } else {
+        // Caso a pagina nao tenha #top-wrapper
+        //document.body.insertBefore(barraBusca, document.body.firstChild);
+        const conteudo = document.querySelector(".conteudo");
+        if (conteudo){
+            conteudo.parentNode.insertBefore(barraBusca, conteudo);
+        } else
+            document.body.appendChild(barraBusca);
+    }
 
     // Logica para busca e filtro
     const inputBusca = document.getElementById("inputBuscaTopo");
+
+    if (inputBusca) {
 
     inputBusca.addEventListener("input", function() {
         const termo = this.value.toLowerCase().trim();
@@ -41,4 +58,5 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     });
+    }
 });

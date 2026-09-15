@@ -13,5 +13,5 @@ footerTemplate.innerHTML = `
 
 const footerContainer = document.getElementById('tudo');
 if (footerContainer) {
-	footerContainer.appendChild(footerTemplate.content);
+	footerContainer.appendChild(footerTemplate.content.cloneNode(true));
 }

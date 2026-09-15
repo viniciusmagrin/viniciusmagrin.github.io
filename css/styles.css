@@ -57,7 +57,7 @@ body{
     border-left: solid 5px #000080;
     border-top: solid 5px #000080;
     border-right: solid 5px #000080;
-    border-bottom: dashed 1px #000080;
+    border-bottom: solid 1px #000080;
     text-align: center;
 }
 
@@ -75,14 +75,17 @@ body{
     background-color: #000080;
     border-left: solid 5px #000080;
     border-right: solid 5px #000080;
-    border-bottom: dashed 1px #000080;
-    overflow: hidden;
+    border-bottom: solid 1px #000080;
+    /*overflow: hidden;*/
     position:sticky;
     top: 0;
     z-index: 1000;
 }
 
 .conteudo{
+    /*width: 100%;*/
+    margin-top: 0;
+    padding-top: 10px;
     margin-left: 5%;
     margin-right: 5%;
     max-width: 1200px;
@@ -128,7 +131,7 @@ pre code{
     background-color: #000080;
     color: #FFFFFF;
     border-left: solid 5px #000080;
-    border-top: dashed 1px #000080;
+    border-top: solid 1px #000080;
     border-right: solid 5px #000080;
     border-bottom: solid 5px #000080;
     clear: both;
@@ -160,6 +163,7 @@ a.menu:hover, a.menu:active{
 li.menu{
     float: left;
     width: 20%;
+    text-align: center;
 }
 
 /*------------*/
@@ -204,3 +208,4 @@ ul.menu_rodape a {
     margin-right: auto;
     box-sizing: border-box;
 }
+

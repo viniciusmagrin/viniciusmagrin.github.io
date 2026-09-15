@@ -1,4 +1,4 @@
-const container = document.querySelector('main') || document.body;
+const container = document.querySelector(".conteudo") || document.body;
 
 const script = document.createElement('script');
 script.src = 'https://utteranc.es/client.js';
