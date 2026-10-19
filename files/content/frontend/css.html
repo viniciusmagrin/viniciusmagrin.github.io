@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    <script src="/js/analytics.js" async></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vinicius Magrin</title>
@@ -44,10 +45,10 @@
             <p><strong>CSS Inline</strong> é escrito diretamente no elemento HTML. ex:</p>
             <pre><code>
                 &lt;link rel="stylesheet" href="styles.css"&gt;
-                &lt;p style="color: red;">This is a red paragraph.&lt/p&gt;
+                &lt;p style="color: red;">Esse é um paragrafo vermelho.&lt/p&gt;
             </code></pre>
 
-            <p><strong>Internal CSS: </strong> Esses estilos são escritos dentro da tag <code>&lt;style&gt;</code> dentro 
+            <p><strong>CSS Interno: </strong> Esses estilos são escritos dentro da tag <code>&lt;style&gt;</code> dentro 
             da seção <code>head</code> do documento HTML. É o mais usado.
             </p>
 
@@ -64,6 +65,17 @@
             <h4>Combinador descendente:</h4>
             <p>Esse combinador é usado para apontar elementos que são descendentes do elemento pai.</p>
 
+            <p>Temos o seguinte codigo HTML:</p>
+            <pre><code>
+                &lt;link rel="stylesheet" href="styles.css">
+                &lt;ul&gt;
+                    &lt;li&gt;Item 1 Exemplo&lt;/li&gt;
+                    &lt;li&gt;Item 2 Exemplo&lt;/li&gt;
+                    &lt;li&gt;Item 3 Exemplo&lt;/li&gt;
+                &lt;/ul&gt;
+            </code></pre>
+
+            <p>O codigo CSS para chamar os itens dentro da lista nao ordenada:</p>
             <pre><code>
                 ul li {
                     background-color: yellow;
@@ -72,6 +84,30 @@
             <p>Todos os elementos <code>&lt;li&gt;</code> terão cor amarelo.</p>
 
             <h4>Combinador filho: </h4>
+            <p>Esse combinador é usado para selecionar elementos que são filhos diretos de um elemento pai
+                especifico. O exemplo abaixo vai aplicar a todos os elementos <code>&lt;p&gt;</code> que sao
+                filhos diretos da classe <code>container</code>.
+            </p>
+            <p>Codigo HTML:</p>
+            <pre><code>
+                &lt;link rel="stylesheet" href="styles.css"&gt;
+                &lt;div class="container"&gt;
+                    &lt;p&gt;Isso vai ser estilizado.&lt;/p&gt;
+                    &lt;div&gt;
+
+                    &lt;p&gt;Isso nao vai ser estilizado.&lt;/p&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <p>Codigo CSS:</p>
+            <pre><code>
+                .container &gt; p {
+                    background-color: black;
+                    color: white;
+                }
+            </code></pre>
+
+
 
             
 
