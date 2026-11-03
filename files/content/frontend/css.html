@@ -83,7 +83,7 @@
             </code></pre>
             <p>Todos os elementos <code>&lt;li&gt;</code> terão cor amarelo.</p>
 
-            <h4>Combinador filho: </h4>
+            <h4>Combinador filho(<code>&gt;</code>):</h4>
             <p>Esse combinador é usado para selecionar elementos que são filhos diretos de um elemento pai
                 especifico. O exemplo abaixo vai aplicar a todos os elementos <code>&lt;p&gt;</code> que sao
                 filhos diretos da classe <code>container</code>.
@@ -106,6 +106,60 @@
                     color: white;
                 }
             </code></pre>
+
+            <h4>Combinador de irmão adjacente(<code>+</code>):</h4>
+            <p>Esse combinador seleciona um elemento que vem imediatamente após um elemento irmão adjacente.
+                O exemplo abaixo vai selecionar o elemento parágrafo que vem imediatamente após o elemento <code>h2</code>.
+            </p>
+            <p>Codigo HTML:</p>
+            <pre><code>
+                &lt;link rel="stylesheet" href="styles.css"&gt;
+                &lt;h2&gt;I am a sub heading&lt;/h2&gt;
+            </code></pre>
+
+            <p>Codigo CSS:</p>
+            <pre><code>
+                h2 + p {
+                    background-color: red;
+                }
+            </code></pre>
+
+            <h4>Combinador de Irmãos Subsequentes(<code>~</code>)</h4>
+            <p>Esse combinador seleciona todos os irmãos de um elemento específico que vem depois dele. O 
+                exemplo abaixo vai estilizar somente o elemento do segundo parágrafo, porque é o único que é
+                irmão do elemento <code>ul</code> e compartilha o mesmo pai.
+            </p>
+            <p>Codigo HTML:</p>
+            <pre><code>
+                &lt;link rel="stylesheet" href="styles.css"&gt;
+                &lt;div class="container"&gt;
+                &lt;p&gt;This will not get styled&lt;/p&gt;
+                &lt;ul&gt;
+                &lt;li&gt;Example item one&lt;/li&gt;
+                &lt;li&gt;Example item two&lt;/li&gt;
+                &lt;li&gt;Example item three&lt;/li&gt;
+                &lt;/ul&gt;
+                &lt;p&gt;This will get styled&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;p&gt;This will not get styled&lt;/p&gt;
+            </code></pre>
+
+            <p>Codigo CSS:</p>
+            <pre><code>
+                ul ~ p {
+                    background-color: green;
+                }
+            </code></pre>
+
+            <h3>Elementos de Nivel Inline, Block e Inline-Block</h3>
+            <h4>Elementos de Nivel Inline</h4>
+            <p>Elementos Inline só tomam o quanto precisarem de largura e nao iniciam em uma nova linha.
+                Esses elementos flutuam dentro do conteudo, permitindo que texto e outros elementos inline
+                apareçam ao lado deles. Elementos inline comuns sao <code>span</code>, <code>a</code>,
+                e <code>img</code>.
+            </p>
+
+
 
 
 
