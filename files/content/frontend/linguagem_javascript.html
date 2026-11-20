@@ -33,7 +33,7 @@
                 </ul>
               <li>
                 <h3>Tipos de dados:</h3>
-                  <p><code>string</code>, <code>number</code> (inteiros e decimais usam o mesmo tipo), <code>boolean</code>, <code>null</code>, <code>undefined</code></p>
+                  <p><code>string</code>, <code>number</code> (inteiros e decimais usam o mesmo tipo), <code>boolean</code> (true ou false), <code>null</code>, <code>undefined</code></p>
 
                 <p><code>symbol</code> Simbolos sao unicos e imutaveis, usados, como identificadores para propriedades de objetos</p> 
                 
@@ -94,10 +94,28 @@
               <li>
                 <h3>Aritméticos</h3>
                 <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>% (resto)</code>, <code>** (exponenciação)/</code>.
+              <p>Obs: Quando se usa o operador <code>+</code> com um numero e uma string, JS converte o numero em uma 
+                string e concatena os dois valores.
+              </p>
+              <p>Se forem os operadores <code>- * /</code> JS converte a string em numero e o resultado 
+                sera um numero.</p>
+                <p>Para <code>null</code> e <code>undefined</code>, JS trata <code>null</code> como 0 e
+                <code>undefined</code> como <code>NaN</code> em operaçoes matematicas.</p>
               </li>
               <li>
                 <h3>Incremento/Decremento:</h3>
                 <code>++</code>, <code>--</code>
+                <p><code>++num</code> aumenta o valor da variavel e depois retorna o novo valor.</p>
+                <p><code>num++</code> retorna o valor atual e aumenta o valor da variavel.</p>
+
+                <h4>Atribuiçao composta</h4>
+                <p><code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code> Faz a operaçao e atribui
+                     o resulto para a variavel</p>
+                <p><code>%=</code> Divide a variavel pelo numero especificado e atribui o resto para a variavel</p>
+                <p><code>**=</code> Eleva a variavel à potencia do numero especificado e reatribui o resultado 
+                à variavel.</p>
+
+
               </li>
               <li>
                 <h3>Comparação Estrita vs Fraca:</h3>
@@ -109,6 +127,14 @@
                   </ul>
               </li>
               <li>
+                <h3>Operadores de Comparaçao</h3>
+                <p><code>&gt;</code> Maior que (Checa se o valor da esquerda é maior que o da direita)</p>
+                <p><code>&gt;=</code> Maior ou igual que</p>
+                <p><code>&lt;</code> Menor que</p>
+                <p><code>&lt;=</code> Menor ou igual que</p>
+
+
+
                 <h3>Operador Ternário</h3>
                 <code>condicao ? valorSeVerdadeiro : valorSeFalso</code>
               </li>
