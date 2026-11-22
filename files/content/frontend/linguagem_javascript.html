@@ -525,7 +525,80 @@ import subtrair, { PI, somar } from './mathUtils.js';
                 const intFormatado = parseInt(textoFormatado); // retorna o valor até o primeiro caractere nao numerico
             </code>
             </pre>
-            </p> 
+            </p>
+            
+            <h2>Exemplos</h2>
+                <h3>Codigos de exemplo</h3>
+                <h4>Mascarador de email</h4>
+                <pre><code>
+// armazenar o email original
+let email = "";
+
+
+// armazenar o email mascarado
+function maskEmail(emailAd) {
+  // definir onde esta o @
+  const localArroba = emailAd.indexOf("@", 0);
+  //console.log(localArroba); //teste "14"
+
+  
+
+  // armazenar o caractere inicial e final antes do @
+  let inicio = "";
+  let fim = "";
+
+  inicio = emailAd.slice(0, 1);
+  //console.log(inicio); //teste "v"
+
+  fim = emailAd.slice(localArroba - 1, localArroba);
+  //console.log(fim); //teste "n"
+
+  // armazenar o que esta do @ em diante
+  let aposArroba = "";
+  aposArroba = emailAd.slice(localArroba, );
+  //console.log(aposArroba); //teste @gmail.com
+
+
+  // substituir o resto por *
+  // eu sei o total de caracteres ate o @ localArroba
+  // Sei tambem que * é @ - inicio - fim, portanto @ - 2 char
+  // portanto
+  
+  // adiciono o primeiro caractere
+  let emailFinal = "";
+  //emailFinal = inicio;
+  //console.log(emailFinal); //teste "v"
+  
+  // adiciono * ate localArroba
+  let nCharX = localArroba - 2;
+  //console.log(nCharX); // teste 12
+  let charX = "*".repeat(nCharX);
+  //console.log(charX); // teste ************
+  //emailFinal = inicio + charX;
+  //console.log(emailFinal); //teste v************
+
+  // adiciono aposArroba
+  emailFinal = inicio + charX + fim +aposArroba;
+  return emailFinal; // teste final ok
+
+
+}
+
+email = "viniciusmagrin@gmail.com";
+console.log(maskEmail(email));
+
+email = "apple.pie@example.com";
+console.log(maskEmail(email));
+
+email = "freecodecamp@example.com";
+console.log(maskEmail(email));
+
+email = "info@test.dev";
+console.log(maskEmail(email));
+
+email = "user@domain.org";
+console.log(maskEmail(email));
+                </code></pre>
 
 
 
