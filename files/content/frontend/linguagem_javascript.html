@@ -133,10 +133,27 @@
                 <p><code>&lt;</code> Menor que</p>
                 <p><code>&lt;=</code> Menor ou igual que</p>
 
+                <h3>Operadores Unários</h3>
+                <p>Convertem os operandos em numeros</p>
+                <p><code>+ "42" // converte para 42</code></p>
+                <p><code>- "42" // converte para -42</code></p>
+                <p><code>!</code> Inverte o valor booleano. Se true, vira false ou vice versa.</p>
 
-
-                <h3>Operador Ternário</h3>
-                <code>condicao ? valorSeVerdadeiro : valorSeFalso</code>
+                <h3>Operadores bit a bit</h3>
+                <p><code>&</code> Operador AND: O operador E retorna 1 se ambos os operandos sao 1</p>
+                <p><code>&=</code> Operador AND Composto: O operador E Composto realiza um AND bit a bit com o numero
+                  especificado e aplica o valor resultante à variavel.</p>
+                <p><code>|</code> Operador OR:O operador OU retorna 1 se um dos bits do operando for 1. Ex: [0,1] ou 
+                  [1,0]</p>
+                <p><code>|=</code> Operador OU Composto: efetua um OU bit a bit com o numero especificado e aplica o
+                  valor resultante à variavel.</p>
+                <p><code>XOR</code> Operador OU Exclusivo: Retorna 1 quando um dos operadores for 1, mas retorna zero 
+                  se ambos forem 1 ou ambos forem zero.</p>
+                <p><code>~</code> Operador NOT: Inverte a representaçao binaria de um numero.</p>
+                <p><code>&lt;&lt;</code> Left Shift Operator, ou Operador de Deslocamento à Esquerda muda todos os bits
+                  para a esquerda em uma quantidade especificada de posiçoes.</p>
+                <p><code>&gt;&gt;</code> Right Shift Operator, ou Operador de Deslocamento à Direita muda todos os bits 
+                  para a direita em uma quantidade especificad de posiçoes.</p>
               </li>
               <li>
                 <h3>Operador de Coalescência Nula (<code>??</code>):</h3>
@@ -177,6 +194,23 @@
                     </li>        
                 </ul>
               </li>
+
+                <p><code>if</code> e <code>else</code> Roda uma operação se a condição do if for verdadeira.</p>
+            <pre><code>
+    if (x > 2) {
+      y = 1;
+    // Se x for maior que 2, y recebe 1.              
+    } else if (x <= 2){
+        y = 0;
+    // Se x for menor ou igual a 2, y recebe 0.
+    }
+            </code></pre>
+
+                <h3>Operador Ternário</h3>
+                    <code>condicao ? valorSeVerdadeiro : valorSeFalso</code>
+
+                <h3>Laço de Repetição <code>FOR</code></h3>
+
             <pre><code>
     // for...of em Arrays
     const numeros = [10, 20, 30];
@@ -190,6 +224,16 @@
         console.log(`${chave}: ${carro[chave]}`);
     }
             </code></pre>
+
+                <h3>Operadores Binarios Logicos</h3>
+                    <p><code>&&</code> O operador AND checa se ambos os operadores sao verdadeiros. Se sim,
+                        retorna um valor. Se um dos operadores for falso, retorna o primeiro valor falso.</p>
+                    <p><code>||</code> O operador OU checa se pelo menos uma das operaçoes é verdadeira.</p>
+                    <p><code>??</code> Operador de Coalescência Nula: Retorna um valor se o primeiro é
+                     <code>null</code> ou <code>undefined.</code></p>
+                     <p>Ex: <code>console.log(quantEstoque ?? 10)</code> Se a quantidade em estoque for 
+                        <code>null</code> ou <code>undefined</code>, ele usa o 10 como valor.</p>
+
 
             <h2>Funções</h2>
               JavaScript trata funções como cidadãs de primeira classe (first-class citizens), permitindo que sejam passadas como argumentos, atribuídas a variáveis e retornadas por outras funções.
@@ -388,6 +432,49 @@ export default function subtrair(a, b) {
 import subtrair, { PI, somar } from './mathUtils.js';
                 </code>
             </pre>
+
+        <h2>Funçoes, Objetos e Metodos da Linguagem JavaScript</h2>
+            <h3>O Objeto <code>Math</code></h3>
+
+            <p><code>Math.random()</code> Gera um numero aleatorio entre 0 e 1</p>
+            <p><code>Math.max()</code> Em um conjunto de numeros, retorna o de maior valor.</p>
+            <p><code>Math.min()</code> Em um conjunto de numeros, retorna o de menor valor.</p>
+            <p><code>Math.ceil()</code> Arredonda um numero para o inteiro superior mais proximo</p>
+            <p><code>Math.floor()</code> Arredonda um numero para o inteiro inferior mais proximo.</p>
+            <p><code>Math.round()</code> Arredonda um numero para seu inteiro mais proximo.</p>
+            <p><code>Math.trunc()</code> Remove a parte decimal de um numero, retornando apenas a parte 
+                inteira</p>
+            <p><code>Math.sqrt()</code> Retorna a raiz quadrada de um numero.</p>
+            <p><code>Math.cbrt()</code> Retorna a raiz cubica de um numero.</p>
+            <p><code>Math.abs()</code> Retorna o valor absoluto (ou modulo) de um numero.</p>
+            <p><code>Math.pow()</code> Recebe dois numeros e eleva o primeiro à potencia do segundo.</p>
+        
+            <h3>Metodos Comuns para Numeros</h3>
+            <p><code>isNaN()</code> NaN significa "Not-a-Number", ou seja, não-número. Representa um valor 
+            numerico indefinido ou impossivel de ser representado. A função <code>isNaN()</code> serve para 
+        checar se um valor é um numero ou nao.</p>
+            <p><code>Number.isNaN()</code> é mais confiável par checar numeros, especialmente onde coerçao de 
+            tipo pode gerar resultados inesperados.</p>
+            <p><code>parseFloat()</code> Esse metodo analisa uma string e retorna um numero de ponto 
+            flutuante (<code>float</code>). É usada para extrair numeros do inicio de uma string, mesmo que 
+                esta contenha valores nao numericos depois do numero.</p>
+            <p><code>parseInt</code> O método analisa uma string e retorna um inteiro. Ele para de analisar 
+                assim que encontra o primeiro caractere que nao seja numero. Para números de ponto flutuante, 
+                retorna somente a parte inteira. Se nao encontra um numero valido, retorna <code>NaN</code></p>
+            <p><code>toFixed</code> Esse método é chamado em um numero e pega um argumento opcional, que é 
+                o numero de digitos que aparece depois do ponto decimal. Retorna uma representaçao do numero 
+                atraves de uma string com o numero especificado de casas decimais.<br>
+            Ex: <pre><code>
+                const valorOriginal = 4.56765446;
+                const textoFormatado = valorOriginal.toFixed(2); // resulta em "4.57" (uma string)
+                const numFormatado = parseFloat(textoFormatado); // resulta em 4.57 (um number de ponto flutuante)
+                const intFormatado = parseInt(textoFormatado); // retorna o valor até o primeiro caractere nao numerico
+            </code>
+            </pre>
+            </p> 
+
+
+
 
 
             
