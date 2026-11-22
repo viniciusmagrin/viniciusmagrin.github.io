@@ -85,6 +85,60 @@
               </code>
               </pre>
 
+            <h2>Trabalhando com texto</h2>
+            <p>Ao trabalhar com texto, vale lembrar que strings sao imutaveis, portanto os metodos vao ter 
+                que ser retornados em uma nova variavel.</p>
+            <p><code>slice(inicio, fim)</code> Define o inicio (do zero) e fim de onde sera recortado. Retorna o texto 
+                em uma nova variável, visto que strings sao imutáveis. Permite negativos, para pegar os ultimos 
+                caracteres por exemplo. </p>
+            <p><code>repeat(n)</code> Repete a string n vezes. Se colocar zero, devolve uma string vazia <code>""</code>. 
+                Se passar numero decimal, converte para inteiro, truncanco a parte decimal.</p>
+            <p><code>indexOf(trecho, posInicial)</code> busca um trecho de texto para saber se ele existe. Se o trecho 
+                    nao existir. retorna -1. Pode ser usado para saber se um texto existe e depois cortar com <code>slice()</code> 
+                    por exemplo.</p>
+
+            <p><code>replace(alvo, substituto)</code> Encontra um 'alvo' e troca por um 'substituto'</p>
+            <p><code>replaceAll(alvo, substituto)</code> Troca todas as ocorrencias do 'alvo pelo 'substituto'.'</p>
+            <p><code>includes(trecho)</code> Só avalia se existe ou nao o 'trecho', sem informar a posiçao exata.</p>
+            <p><code>trim()</code>, <code>trimStart()</code>, <code>trimEnd()</code> Remove espaços em branco, tabs e 
+                quebras de linha das extremidades. É fundamental antes de comparar ou converter entradas de texto.</p>
+            <p><code>split(separador)</code> Quebra a string em um array de pedaços, usando o 'separador', que normalmente 
+                é <code>","</code>, <code>"-"</code>,  <code>"-"</code> ou <code>" "</code>, facilitando processar cada 
+                parte separadamente.</p>
+            <p><code>padStart(tamTotal, preenchimento) / padEnd(...)</code> Completa o texto ate atingir um 
+                comprimento minimo. Muito usado para zeros a esquerda, como formatar dias, meses ou codigos.</p>
+
+                <h3>Zero a esquerda com <code>padStart</code></h3>
+                    <p>
+                    <pre><code>
+                        const diaSimples = "5";
+                        const diaFormatado = diaSimples.padStart(2, "0"); // 05
+
+                        const diaDuplo = 15;
+                        const diaMantido = diaDuplo.padStart(2, "0"); // 15
+                    </code></pre>
+                    </p>
+                    
+                <h3>Alinhamento a direita com <code>padEnd</code></h3>
+                    <p>
+                        Digamos que queira um codigo com 8 caracteres preenchidos com traços <code>"-"</code>:
+                        <pre><code>
+                            const codigo = "ID-42";
+                            const codigoAlinhado = codigo.padEnd(8, "-"); // "ID-42---"
+                        </code></pre>
+                    </p>
+
+                <h3>Preenchimento com mais de um caractere</h3>
+                    <p> Se o texto tiver tamanho 2 e voce pedir um tamanho 7, preenchendo com "xy" ele repete 
+                        "xy" e corta no limite exato para nao passar de 7 caracteres (<code>okxyxyx</code>)
+                    <code>
+                        const base = "ok";
+                        const preenchido = base.padEnd(7, "xy"); // "okxyxyx"
+                    </code></p>
+                    <p>Obs: <code>padStart</code> e <code>padEnd</code> sao metodos de string, entao em um 
+                        numero como <code>5</code>, primeiro converter pra texto: <code>String(5).padStart(2, "0")</code></p>
+
+
             <h2>Operadores e Comparações</h2>
               <ul>
               <li>
